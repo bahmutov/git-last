@@ -16,6 +16,7 @@ function gitLast (argv) {
 }
 
 if (module.parent) {
+  // eslint-disable-next-line immutable/no-mutation
   module.exports = gitLast
 } else {
   gitLast(process.argv).done()

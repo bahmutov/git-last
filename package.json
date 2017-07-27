@@ -58,8 +58,9 @@
     "issues": "git-issues",
     "license": "license-checker --production --onlyunknown --csv",
     "lint": "standard --verbose --fix src/*.js",
+    "lint-more": "eslint --fix src/*.js",
     "prelint": "npm run pretty",
-    "pretest": "npm run lint",
+    "pretest": "npm run lint && npm run lint-more",
     "pretty": "prettier-standard 'src/*.js'",
     "secure": "nsp check",
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
@@ -72,6 +73,8 @@
     "dependency-check": "2.9.1",
     "deps-ok": "1.2.0",
     "dont-crack": "1.2.1",
+    "eslint": "4.3.0",
+    "eslint-plugin-immutable": "1.0.0",
     "git-issues": "1.3.1",
     "github-post-release": "1.12.1",
     "license-checker": "13.0.2",
@@ -94,5 +97,19 @@
   "dependencies": {
     "commander": "2.11.0",
     "ggit": "1.23.1"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true
+    },
+    "plugins": [
+      "immutable"
+    ],
+    "rules": {
+      "no-var": 2,
+      "immutable/no-let": 2,
+      "immutable/no-this": 2,
+      "immutable/no-mutation": 2
+    }
   }
 }
