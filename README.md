@@ -36,6 +36,10 @@ cat build.json
 If available, will load `package.json` and will save its version in the output
 file as well
 
+## Related
+
+* [ggit](https://github.com/bahmutov/ggit#readme) - Node API to Git commands
+
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2017
