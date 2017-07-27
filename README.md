@@ -18,6 +18,24 @@ npm install --save git-last
 
 ## Use
 
+Call from CLI to either show or save commit id into a file
+
+```bash
+$(npm bin)/git-last -f build.json
+saved last commit d9a0dc152... (short d9a0dc1) in file build.json
+last commit: d9a0dc152...
+cat build.json
+{
+  "id": "d9a0dc15206396663e7c8f29aea07be8534c2ae4",
+  "short": "d9a0dc1",
+  "savedAt": "2017-07-27T14:37:06.850Z",
+  "version": "0.0.0-development"
+}
+```
+
+If available, will load `package.json` and will save its version in the output
+file as well
+
 ### Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2017

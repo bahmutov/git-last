@@ -4,6 +4,9 @@
   "version": "0.0.0-development",
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "bugs": "https://github.com/bahmutov/git-last/issues",
+  "bin": {
+    "git-last": "src/index.js"
+  },
   "config": {
     "pre-git": {
       "commit-msg": "simple",
@@ -87,5 +90,9 @@
       "path": "dont-crack",
       "test-against": []
     }
+  },
+  "dependencies": {
+    "commander": "2.11.0",
+    "ggit": "1.23.1"
   }
 }
