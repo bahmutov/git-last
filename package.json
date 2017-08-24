@@ -83,6 +83,7 @@
     "nsp": "2.7.0",
     "pre-git": "3.15.3",
     "prettier-standard": "6.0.0",
+    "ramda": "0.24.1",
     "semantic-release": "8.0.0",
     "simple-commit-message": "3.3.1",
     "standard": "10.0.3"
@@ -98,7 +99,7 @@
   "dependencies": {
     "check-more-types": "2.24.0",
     "commander": "2.11.0",
-    "ggit": "2.0.2",
+    "ggit": "2.2.0",
     "lazy-ass": "1.6.0"
   },
   "eslintConfig": {

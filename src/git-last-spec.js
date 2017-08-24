@@ -3,6 +3,7 @@
 const la = require('lazy-ass')
 const is = require('check-more-types')
 const execa = require('execa')
+const R = require('ramda')
 const { unlinkSync: rm, existsSync: exists, readFileSync: read } = require('fs')
 
 /* eslint-env mocha */
@@ -27,9 +28,15 @@ describe('git-last', () => {
     la(exists(buildFilename), 'cannot find file', buildFilename)
   }
 
-  const fileIsValid = () => {
-    const json = JSON.parse(read(buildFilename, 'utf8'))
+  const loadBuild = () => JSON.parse(read(buildFilename, 'utf8'))
+
+  const fileIsValid = json => {
+    la(json, 'missing json to check')
     la(isBuildInfo(json), 'invalid build info in', buildFilename, json)
+  }
+
+  const fileHasMessage = json => {
+    la(is.unemptyString(json.message), 'missing message', buildFilename, json)
   }
 
   beforeEach(deleteBuildFile)
@@ -39,8 +46,53 @@ describe('git-last', () => {
     la(is.fn(gitLast))
   })
 
-  it('saves valid json with -f', () =>
-    execa('node', ['.', '-f', buildFilename])
+  it('saves valid json with -f', () => {
+    // eslint-disable-next-line immutable/no-let
+    let result
+    return execa('node', ['.', '-f', buildFilename])
+      .then(R.tap(r => (result = r)))
       .then(fileExists)
-      .then(fileIsValid))
+      .then(loadBuild)
+      .then(fileIsValid)
+      .catch(err => {
+        console.error(err)
+        console.error(result.stdout)
+        console.error(result.stderr)
+        throw err
+      })
+  })
+
+  it('saves json with commit message for -m', () => {
+    // eslint-disable-next-line immutable/no-let
+    let result
+    return execa('node', ['.', '-f', buildFilename, '-m'])
+      .then(R.tap(r => (result = r)))
+      .then(fileExists)
+      .then(loadBuild)
+      .then(R.tap(fileIsValid))
+      .then(fileHasMessage)
+      .catch(err => {
+        console.error(err)
+        console.error(result.stdout)
+        console.error(result.stderr)
+        throw err
+      })
+  })
+
+  it('saves json with commit message for --message', () => {
+    // eslint-disable-next-line immutable/no-let
+    let result
+    return execa('node', ['.', '-f', buildFilename, '--message'])
+      .then(R.tap(r => (result = r)))
+      .then(fileExists)
+      .then(loadBuild)
+      .then(R.tap(fileIsValid))
+      .then(fileHasMessage)
+      .catch(err => {
+        console.error(err)
+        console.error(result.stdout)
+        console.error(result.stderr)
+        throw err
+      })
+  })
 })

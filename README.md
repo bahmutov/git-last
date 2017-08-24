@@ -36,6 +36,11 @@ cat build.json
 If available, will load `package.json` and will save its version in the output
 file as well
 
+For my convenience there is also same timestamp but in Eastern Time Zone.
+
+If you pass `-m` or `--message` option, the saved file will have commit's abbreviated
+message (like first 15 characters). This makes finding the deployed commit much faster.
+
 ## Related
 
 * [ggit](https://github.com/bahmutov/ggit#readme) - Node API to Git commands
