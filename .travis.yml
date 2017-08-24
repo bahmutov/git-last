@@ -5,12 +5,12 @@ cache:
 notifications:
   email: true
 node_js:
-  - '6'
+  - '8'
 before_script:
   - npm prune
 script:
   - npm test
-  - node src/index.js -f build.json
+  - node src/index.js -f build.json --message
   - cat build.json
 after_success:
   - npm run semantic-release
