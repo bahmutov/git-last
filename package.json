@@ -86,17 +86,9 @@
     "prettier-standard": "6.0.0",
     "ramda": "0.24.1",
     "semantic-release": "^15.9.12",
-    "simple-commit-message": "3.3.1",
+    "simple-commit-message": "4.0.3",
     "standard": "10.0.3",
     "travis-deploy-once": "^5.0.7"
-  },
-  "release": {
-    "analyzeCommits": "simple-commit-message",
-    "generateNotes": "github-post-release",
-    "verifyRelease": {
-      "path": "dont-crack",
-      "test-against": []
-    }
   },
   "dependencies": {
     "check-more-types": "2.24.0",
@@ -117,5 +109,8 @@
       "immutable/no-this": 2,
       "immutable/no-mutation": 2
     }
+  },
+  "release": {
+    "analyzeCommits": "simple-commit-message"
   }
 }
