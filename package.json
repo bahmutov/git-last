@@ -66,7 +66,8 @@
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "test": "npm run unit",
     "unit": "mocha src/*-spec.js",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "devDependencies": {
     "ban-sensitive-files": "1.9.0",
@@ -84,9 +85,10 @@
     "pre-git": "3.15.3",
     "prettier-standard": "6.0.0",
     "ramda": "0.24.1",
-    "semantic-release": "8.0.0",
+    "semantic-release": "^15.9.12",
     "simple-commit-message": "3.3.1",
-    "standard": "10.0.3"
+    "standard": "10.0.3",
+    "travis-deploy-once": "^5.0.7"
   },
   "release": {
     "analyzeCommits": "simple-commit-message",
