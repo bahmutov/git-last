@@ -55,7 +55,7 @@ describe('git-last', () => {
     la(is.fn(gitLast))
   })
 
-  it('saves valid json with -f', () => {
+  it.only('saves valid json with -f', () => {
     // eslint-disable-next-line immutable/no-let
     let result
     return execa('node', ['.', '-f', buildFilename])
