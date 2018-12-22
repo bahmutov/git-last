@@ -92,7 +92,7 @@
   "dependencies": {
     "check-more-types": "2.24.0",
     "commander": "2.19.0",
-    "ggit": "2.4.9",
+    "ggit": "2.4.10",
     "lazy-ass": "1.6.0"
   },
   "eslintConfig": {
