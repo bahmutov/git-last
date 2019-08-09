@@ -85,7 +85,7 @@
     "prettier-standard": "6.0.0",
     "ramda": "0.26.1",
     "semantic-release": "15.13.19",
-    "simple-commit-message": "4.0.6",
+    "simple-commit-message": "4.0.7",
     "standard": "10.0.3",
     "travis-deploy-once": "5.0.11"
   },
