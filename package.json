@@ -91,7 +91,7 @@
   },
   "dependencies": {
     "check-more-types": "2.24.0",
-    "commander": "2.20.0",
+    "commander": "2.20.1",
     "ggit": "2.4.12",
     "lazy-ass": "1.6.0"
   },
